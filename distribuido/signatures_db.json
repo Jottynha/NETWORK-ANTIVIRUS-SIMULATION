@@ -1,0 +1,36 @@
+{
+  "_last_update": "2025-11-15T10:34:10.760959",
+  "_version": "2.5",
+  "malware": {
+    "d41d8cd98f00b204e9800998ecf8427e": "Empty.File.Test",
+    "5d41402abc4b2a76b9719d911017c592": "Test.Malware.Hello",
+    "7d793037a0760186574b0282f2f435e7": "Trojan.WorldVirus",
+    "098f6bcd4621d373cade4e832627b4f6": "Generic.Malware.Test",
+    "5eb63bbbe01eeed093cb22bb8f5acdc3": "Trojan.Ransomware.2024",
+    "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae": "Worm.CryptoMiner.New",
+    "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306": "Virus.ZeroDay.Critical"
+  },
+  "suspicious_patterns": [
+    "eval(",
+    "exec(",
+    "system(",
+    "__import__",
+    "os.system",
+    "subprocess.call",
+    "base64.b64decode",
+    "socket.connect",
+    "requests.post"
+  ],
+  "behavioral_rules": [
+    {
+      "name": "Multiple File Access",
+      "description": "Acesso r\u00e1pido a m\u00faltiplos arquivos",
+      "severity": "high"
+    },
+    {
+      "name": "Network Connection",
+      "description": "Tentativa de conex\u00e3o externa",
+      "severity": "medium"
+    }
+  ]
+}

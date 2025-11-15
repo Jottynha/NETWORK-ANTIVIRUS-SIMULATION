@@ -1,0 +1,19 @@
+{
+  "_last_update": "2024-01-01",
+  "_version": "1.0",
+  "malware": {
+    "d41d8cd98f00b204e9800998ecf8427e": "Empty.File.Test",
+    "5d41402abc4b2a76b9719d911017c592": "Test.Malware.Hello",
+    "7d793037a0760186574b0282f2f435e7": "Trojan.WorldVirus",
+    "098f6bcd4621d373cade4e832627b4f6": "Generic.Malware.Test",
+    "b1946ac92492d2347c6235b4d2611184": "Trojan.Malware.Demo"
+  },
+  "suspicious_patterns": [
+    "eval(",
+    "exec(",
+    "system(",
+    "__import__",
+    "os.system",
+    "subprocess.call"
+  ]
+}
