@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-"""
-Antivírus Local - Demonstração
-Escaneia arquivos usando uma base de assinaturas local
-"""
+#Antivírus Local/Escaneia arquivos usando uma base de assinaturas local
+
 
 import os
 import hashlib
@@ -45,7 +42,7 @@ class AntivirusLocal:
             with open(signatures_file, 'r') as f:
                 self.signatures = json.load(f)
             print(f"{Fore.GREEN}✓ Base de assinaturas carregada: {len(self.signatures)} assinaturas")
-            print(f"{Fore.YELLOW}⚠ Última atualização: {self.signatures.get('_last_update', 'Desconhecida')}")
+            print(f"{Fore.YELLOW} Última atualização: {self.signatures.get('_last_update', 'Desconhecida')}")
         else:
             print(f"{Fore.RED}✗ Nenhuma base de assinaturas encontrada!")
             # Criar base básica
@@ -140,7 +137,7 @@ class AntivirusLocal:
                     content = f.read()
                     for pattern in self.signatures.get('suspicious_patterns', []):
                         if pattern in content:
-                            print(f"{Fore.YELLOW}⚠ SUSPEITO: {filepath}")
+                            print(f"{Fore.YELLOW} SUSPEITO: {filepath}")
                             print(f"  Padrão encontrado: {pattern.decode('utf-8', errors='ignore')}")
                             print(f"  Método: Análise de Padrões")
                             print(f"  Severidade: MÉDIA")
@@ -210,7 +207,7 @@ class AntivirusLocal:
         print(f"{Fore.CYAN}{'='*70}\n")
         
         # Estatísticas gerais
-        print(f"{Fore.WHITE}📊 ESTATÍSTICAS GERAIS:")
+        print(f"{Fore.WHITE}ESTATÍSTICAS GERAIS:")
         print(f"   Total de arquivos escaneados: {self.scan_results['total_files']}")
         print(f"   {Fore.GREEN}Arquivos limpos: {self.scan_results['clean_files']}")
         print(f"   {Fore.RED}Arquivos infectados: {self.scan_results['infected_files']}")
@@ -226,7 +223,7 @@ class AntivirusLocal:
             print(f"   Arquivo mais lento: {max(self.scan_times)*1000:.2f}ms")
         
         # Recursos
-        print(f"\n{Fore.WHITE}💾 USO DE RECURSOS:")
+        print(f"\n{Fore.WHITE}USO DE RECURSOS:")
         print(f"   Memória utilizada: {self.scan_results['memory_used']:.2f} MB")
         total_mb = self.scan_results['total_bytes_scanned'] / 1024 / 1024
         print(f"   Total de dados escaneados: {total_mb:.2f} MB")
@@ -236,12 +233,12 @@ class AntivirusLocal:
         
         # Tipos de arquivo
         if self.scan_results['file_types_scanned']:
-            print(f"\n{Fore.WHITE}📁 TIPOS DE ARQUIVO:")
+            print(f"\n{Fore.WHITE}TIPOS DE ARQUIVO:")
             for ext, count in sorted(self.scan_results['file_types_scanned'].items(), key=lambda x: x[1], reverse=True):
                 print(f"   {ext}: {count} arquivo(s)")
         
         # Tamanhos
-        print(f"\n{Fore.WHITE}📏 TAMANHOS:")
+        print(f"\n{Fore.WHITE}TAMANHOS:")
         if self.scan_results['largest_file']['size'] > 0:
             print(f"   Maior arquivo: {Path(self.scan_results['largest_file']['name']).name} ({self.scan_results['largest_file']['size']/1024:.2f} KB)")
         if self.scan_results['smallest_file']['size'] < float('inf'):
@@ -249,14 +246,14 @@ class AntivirusLocal:
         
         # Métodos de detecção
         if sum(self.scan_results['detection_methods'].values()) > 0:
-            print(f"\n{Fore.WHITE}🔍 MÉTODOS DE DETECÇÃO:")
+            print(f"\n{Fore.WHITE}MÉTODOS DE DETECÇÃO:")
             for method, count in self.scan_results['detection_methods'].items():
                 if count > 0:
                     print(f"   {method.title()}: {count} detecção(ões)")
         
         # Severidade
         if sum(self.scan_results['threat_severity'].values()) > 0:
-            print(f"\n{Fore.WHITE}⚠️  SEVERIDADE DAS AMEAÇAS:")
+            print(f"\n{Fore.WHITE}️  SEVERIDADE DAS AMEAÇAS:")
             severity_colors = {'critical': Fore.RED, 'high': Fore.MAGENTA, 'medium': Fore.YELLOW, 'low': Fore.BLUE}
             for level, count in self.scan_results['threat_severity'].items():
                 if count > 0:
@@ -265,7 +262,7 @@ class AntivirusLocal:
         
         # Ameaças detectadas
         if self.scan_results['threats_found']:
-            print(f"\n{Fore.RED}🚨 AMEAÇAS DETECTADAS:")
+            print(f"\n{Fore.RED}AMEAÇAS DETECTADAS:")
             for i, threat in enumerate(self.scan_results['threats_found'], 1):
                 print(f"\n   [{i}] {Path(threat['file']).name}")
                 print(f"       Tipo: {threat['threat']}")
@@ -277,10 +274,10 @@ class AntivirusLocal:
         # Taxa de detecção
         if self.scan_results['total_files'] > 0:
             detection_rate = (self.scan_results['infected_files'] + self.scan_results['suspicious_files']) / self.scan_results['total_files'] * 100
-            print(f"\n{Fore.WHITE}📈 TAXA DE DETECÇÃO: {detection_rate:.1f}%")
+            print(f"\n{Fore.WHITE}TAXA DE DETECÇÃO: {detection_rate:.1f}%")
         
         # Limitações
-        print(f"\n{Fore.YELLOW}⚠️  LIMITAÇÕES DO ANTIVÍRUS LOCAL:")
+        print(f"\n{Fore.YELLOW}️  LIMITAÇÕES DO ANTIVÍRUS LOCAL:")
         print(f"   • Base de assinaturas desatualizada ({self.signatures.get('_last_update', 'desconhecida')})")
         print(f"   • {len(self.signatures.get('malware', {}))} assinaturas conhecidas (limitado)")
         print(f"   • Não detecta ameaças zero-day")

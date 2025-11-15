@@ -1,10 +1,10 @@
-# Antivírus Distribuído vs Local - Análise Comparativa Completa
+# Antivírus Distribuído vs Local - Análise Comparativa 
 
-Sistema de demonstração educacional que implementa e compara arquiteturas de antivírus local e distribuído, coletando métricas detalhadas de performance, eficácia e uso de recursos.
+Sistema de demonstração educacional que implementa e compara arquiteturas de antivírus local e distribuído, coletando métricas detalhadas de performance, eficácia e uso de recursos para disciplina de Redes de Computadores.
 
 ---
 
-## 📋 Índice
+## Índice
 
 1. [Visão Geral](#visão-geral)
 2. [Arquitetura do Sistema](#arquitetura-do-sistema)
@@ -17,7 +17,7 @@ Sistema de demonstração educacional que implementa e compara arquiteturas de a
 
 ---
 
-## 🎯 Visão Geral
+## Visão Geral
 
 Este projeto demonstra **na prática** as diferenças entre duas arquiteturas de antivírus:
 
@@ -45,12 +45,12 @@ Este projeto demonstra **na prática** as diferenças entre duas arquiteturas de
 ```
 
 **Características:**
-- ✅ 100% Offline
-- ✅ Privacidade Total
-- ✅ Sem Latência de Rede
-- ❌ Base Desatualizada
-- ❌ Não Detecta Zero-Days
-- ❌ Recursos Limitados
+- 100% Offline
+- Privacidade Total
+- Sem Latência de Rede
+- Base Desatualizada
+- Não Detecta Zero-Days
+- Recursos Limitados
 
 ### **Antivírus Distribuído (Cloud-Based)**
 ```
@@ -76,21 +76,21 @@ Este projeto demonstra **na prática** as diferenças entre duas arquiteturas de
 ```
 
 **Características:**
-- ✅ Base Sempre Atualizada
-- ✅ Detecta Zero-Days
-- ✅ Escalabilidade Horizontal
-- ✅ Inteligência Coletiva
-- ✅ Análise Comportamental
-- ❌ Requer Conexão de Rede
-- ⚠️ Menor Privacidade
+- Base Sempre Atualizada
+- Detecta Zero-Days
+- Escalabilidade Horizontal
+- Inteligência Coletiva
+- Análise Comportamental
+- Requer Conexão de Rede
+- Menor Privacidade
 
 ---
 
-## 🏗️ Arquitetura do Sistema
+## Arquitetura do Sistema
 
 ### Estrutura de Arquivos
 ```
-REDES-ANTIVIRUS/
+NETWORK-ANTIVIRUS-SIMULATION/
 ├── local/
 │   ├── antivirus_local.py      # Scanner local completo
 │   └── signatures.db           # Base de assinaturas (JSON)
@@ -119,11 +119,11 @@ REDES-ANTIVIRUS/
 
 ---
 
-## 🚀 Instalação
+## Instalação
 
 ### 1. Clonar/Criar o Projeto
 ```bash
-cd "/home/joao/Projetos/6º Periodo/REDES-ANTIVIRUS"
+git clone "Jottynha/NETWORK-ANTIVIRUS-SIMULATION/"
 ```
 
 ### 2. Instalar Dependências
@@ -142,12 +142,12 @@ tabulate>=0.9.0
 
 ### 3. Verificar Instalação
 ```bash
-python3 -c "import flask, requests, psutil, colorama, tabulate; print('✅ Tudo instalado!')"
+python3 -c "import flask, requests, psutil, colorama, tabulate; print('Tudo instalado.')"
 ```
 
 ---
 
-## 🎮 Como Executar
+## Como Executar
 
 ### Opção 1: Antivírus Local (Standalone)
 ```bash
@@ -208,44 +208,44 @@ python3 comparacao.py
 
 ---
 
-## 📊 Métricas e Análises
+## Métricas e Análises
 
 ### Métricas Coletadas Automaticamente
 
 #### 1. **Performance**
-- ⏱️ **Tempo Total de Scan** (segundos)
-- ⏱️ **Tempo por Arquivo** (ms/arquivo)
-- 🚀 **Taxa de Processamento** (arquivos/segundo)
-- 🌐 **Latência de Rede** (apenas distribuído)
+- **Tempo Total de Scan** (segundos)
+- **Tempo por Arquivo** (ms/arquivo)
+- **Taxa de Processamento** (arquivos/segundo)
+- **Latência de Rede** (apenas distribuído)
 
 #### 2. **Uso de Recursos**
-- 💾 **Memória RAM** (MB utilizada)
-- 🔄 **CPU** (% durante scan)
-- 📡 **Tráfego de Rede** (KB enviados/recebidos)
-- 💽 **I/O de Disco** (operações/segundo)
+- **Memória RAM** (MB utilizada)
+- **CPU** (% durante scan)
+- **Tráfego de Rede** (KB enviados/recebidos)
+- **I/O de Disco** (operações/segundo)
 
 #### 3. **Eficácia de Detecção**
-- 🎯 **Taxa de Detecção** (%)
-- 🆕 **Detecção de Zero-Days**
-- 🔍 **Falsos Positivos**
-- ❌ **Falsos Negativos**
-- 📈 **Confiabilidade** (score)
+- **Taxa de Detecção** (%)
+- **Detecção de Zero-Days**
+- **Falsos Positivos**
+- **Falsos Negativos**
+- **Confiabilidade** (score)
 
 #### 4. **Escalabilidade**
-- 👥 **Clientes Simultâneos** (apenas distribuído)
-- 📊 **Throughput** (scans/minuto)
-- 🔄 **Load Balancing**
-- ⚡ **Tempo de Resposta sob Carga**
+- **Clientes Simultâneos** (apenas distribuído)
+- **Throughput** (scans/minuto)
+- **Load Balancing**
+- **Tempo de Resposta sob Carga**
 
 #### 5. **Qualidade de Análise**
-- 🧬 **Profundidade da Análise**
-- 🔬 **Métodos de Detecção Utilizados**
-- 📝 **Detalhamento de Ameaças**
-- 💡 **Recomendações de Ação**
+- **Profundidade da Análise**
+- **Métodos de Detecção Utilizados**
+- **Detalhamento de Ameaças**
+- **Recomendações de Ação**
 
 ---
 
-## 📈 Resultados Esperados
+## Resultados Esperados
 
 ### Comparação de Performance
 
@@ -262,10 +262,10 @@ python3 comparacao.py
 
 | Arquivo | Tipo | Local | Distribuído | Motivo |
 |---------|------|-------|-------------|--------|
-| `malware_test.txt` | Malware Conhecido | ✅ Detecta | ✅ Detecta | Hash na base |
-| `suspeito.py` | Código Suspeito | ⚠️ Suspeito | ⚠️ Suspeito | Padrão `eval()` |
-| `zeroday_test.txt` | Zero-Day | ❌ Não Detecta | ✅ Detecta | Base atualizada |
-| `clean_*.txt` | Arquivos Limpos | ✅ Limpo | ✅ Limpo | Sem ameaças |
+| `malware_test.txt` | Malware Conhecido | Detecta | Detecta | Hash na base |
+| `suspeito.py` | Código Suspeito | Suspeito | Suspeito | Padrão `eval()` |
+| `zeroday_test.txt` | Zero-Day | Não Detecta | Detecta | Base atualizada |
+| `clean_*.txt` | Arquivos Limpos | Limpo | Limpo | Sem ameaças |
 
 ### Análise de Custos
 
@@ -279,7 +279,7 @@ python3 comparacao.py
 
 ---
 
-## 🔬 Diferenças Técnicas Detalhadas
+## Diferenças Técnicas Detalhadas
 
 ### 1. Métodos de Detecção
 
@@ -358,48 +358,48 @@ Tempo: ~15-20ms por arquivo (inclui rede)
 
 ---
 
-## 🎯 Casos de Uso
+## Casos de Uso
 
 ### Quando usar **Antivírus Local**
 
-✅ **Ambientes Offline**
+**Ambientes Offline**
 - Instalações militares
 - Redes isoladas (air-gapped)
 - Locais sem conectividade
 
-✅ **Alta Confidencialidade**
+**Alta Confidencialidade**
 - Dados governamentais classificados
 - Propriedade intelectual crítica
 - Informações médicas sensíveis
 
-✅ **Baixo Orçamento**
+**Baixo Orçamento**
 - Pequenas empresas
 - Uso pessoal
 - Ambientes de teste
 
-✅ **Requisitos Regulatórios**
+**Requisitos Regulatórios**
 - LGPD/GDPR com restrições de cloud
 - Compliance específico
 - Soberania de dados
 
 ### Quando usar **Antivírus Distribuído**
 
-✅ **Ambientes Corporativos**
+**Ambientes Corporativos**
 - Empresas médias/grandes
 - Múltiplos escritórios
 - Força de trabalho distribuída
 
-✅ **Proteção Máxima**
+**Proteção Máxima**
 - E-commerce
 - Serviços financeiros
 - SaaS providers
 
-✅ **Ameaças em Evolução**
+**Ameaças em Evolução**
 - Setores sob ataque constante
 - Alta visibilidade pública
 - Dados de alto valor
 
-✅ **Grande Volume de Dados**
+**Grande Volume de Dados**
 - Data centers
 - Cloud providers
 - Provedores de hospedagem
@@ -445,7 +445,7 @@ A maioria dos antivírus comerciais usa um **modelo híbrido**:
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 ### Perguntas Gerais
 
@@ -494,51 +494,7 @@ A: Ideias:
 
 ---
 
-## 🎓 Apresentação do Trabalho
-
-### Roteiro Sugerido (15-20 min)
-
-**1. Introdução (2 min)**
-- Problema: Malware é uma ameaça constante
-- Duas abordagens: Local vs Distribuído
-- Objetivo: Demonstrar diferenças práticas
-
-**2. Demo Antivírus Local (5 min)**
-```bash
-python3 local/antivirus_local.py test_files/
-```
-- Mostrar: Funciona offline
-- Destacar: Base desatualizada
-- Resultado: Detecta apenas ameaças conhecidas
-
-**3. Demo Antivírus Distribuído (5 min)**
-```bash
-# Terminal 1
-python3 distribuido/server.py
-
-# Terminal 2
-python3 distribuido/client.py test_files/
-```
-- Mostrar: Conexão com servidor
-- Destacar: Base atualizada
-- Resultado: Detecta zero-days
-
-**4. Comparação (5 min)**
-```bash
-python3 comparacao.py
-```
-- Tabela comparativa
-- Métricas lado a lado
-- Análise de trade-offs
-
-**5. Conclusão (3 min)**
-- Nenhuma solução é absolutamente melhor
-- Depende do contexto
-- Tendência: Modelo híbrido
-
----
-
-## 📚 Referências
+## Referências
 
 **Livros:**
 - "Practical Malware Analysis" - Michael Sikorski
@@ -563,36 +519,19 @@ python3 comparacao.py
 
 ---
 
-## 📄 Licença
+## Autores
 
-Projeto educacional - Livre para uso acadêmico
-
----
-
-## ✨ Autor
+- João Pedro Rodrigues Silva
+- Jader Oliveira Silva
+- Pedro Augosto Gontijo Moura
+- Henrique de Freitas
+- Samuel Silva Gomes
+- Rafael Adolfo 
 
 Desenvolvido para demonstração em trabalho acadêmico sobre Redes de Computadores
 
-**Data:** Novembro 2024
+**Data:** Novembro 2025
 **Disciplina:** Redes de Computadores - 6º Período
 
 ---
 
-## 🚀 Quick Start
-
-```bash
-# Instalar
-pip3 install -r requirements.txt
-
-# Teste rápido - Local
-python3 local/antivirus_local.py test_files/
-
-# Teste completo - Distribuído (2 terminais)
-python3 distribuido/server.py
-python3 distribuido/client.py test_files/
-
-# Comparação completa
-python3 comparacao.py
-```
-
-**Pronto para apresentar! 🎉**

@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-"""
-Servidor do Antivírus Distribuído
-Mantém base de assinaturas atualizada e processa requisições de clientes
-"""
+# Servidor do Antivírus Distribuído/Mantém base de assinaturas atualizada e processa requisições de clientes
+
 
 from flask import Flask, request, jsonify
 import hashlib
@@ -79,7 +76,7 @@ class SignaturesDB:
         with open(self.db_file, 'w') as f:
             json.dump(self.database, f, indent=2)
         
-        print(f"{Fore.GREEN}✓ Base de assinaturas atualizada criada")
+        print(f"{Fore.GREEN}Base de assinaturas atualizada criada")
 
 # Instância global
 signatures_db = SignaturesDB()
@@ -100,7 +97,7 @@ def get_signatures():
     client_id = request.args.get('client_id', 'unknown')
     signatures_db.stats['clients_connected'].add(client_id)
     
-    print(f"{Fore.CYAN}📥 Cliente {client_id} solicitou assinaturas")
+    print(f"{Fore.CYAN}Cliente {client_id} solicitou assinaturas")
     
     return jsonify(signatures_db.database)
 
@@ -132,7 +129,7 @@ def scan_file():
         result['recommendations'].append('Deletar arquivo imediatamente')
         signatures_db.stats['threats_detected'] += 1
         
-        print(f"{Fore.RED}🚨 AMEAÇA DETECTADA: {file_name}")
+        print(f"{Fore.RED}AMEAÇA DETECTADA: {file_name}")
         print(f"   Cliente: {client_id}")
         print(f"   Tipo: {threat_name}")
     
@@ -151,7 +148,7 @@ def scan_file():
                 print(f"   Padrão: {pattern}")
     
     if result['clean']:
-        print(f"{Fore.GREEN}✓ Limpo: {file_name} (Cliente: {client_id})")
+        print(f"{Fore.GREEN}Limpo: {file_name} (Cliente: {client_id})")
     
     return jsonify(result)
 
@@ -189,9 +186,9 @@ def main():
     print(f"{Fore.CYAN}{'='*70}")
     print(f"{Fore.CYAN}SERVIDOR ANTIVÍRUS DISTRIBUÍDO")
     print(f"{Fore.CYAN}{'='*70}\n")
-    print(f"{Fore.GREEN}✓ Servidor iniciado em http://localhost:5000")
-    print(f"{Fore.GREEN}✓ Base de assinaturas: {len(signatures_db.database.get('malware', {}))} assinaturas")
-    print(f"{Fore.GREEN}✓ Última atualização: {signatures_db.database.get('_last_update')}\n")
+    print(f"{Fore.GREEN}Servidor iniciado em http://localhost:5000")
+    print(f"{Fore.GREEN}Base de assinaturas: {len(signatures_db.database.get('malware', {}))} assinaturas")
+    print(f"{Fore.GREEN}Última atualização: {signatures_db.database.get('_last_update')}\n")
     print(f"{Fore.YELLOW}Aguardando conexões de clientes...\n")
     
     app.run(host='0.0.0.0', port=5000, debug=False)

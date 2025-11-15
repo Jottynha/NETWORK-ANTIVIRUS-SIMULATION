@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-"""
-Cliente do Antivírus Distribuído
-Escaneia arquivos localmente mas consulta servidor para análise
-"""
+# Cliente do Antivírus Distribuído/Escaneia arquivos localmente mas consulta servidor para análise
+
 
 import os
 import hashlib
@@ -52,7 +49,7 @@ class AntivirusDistribuidoCliente:
             response = requests.get(f'{self.server_url}/health', timeout=5)
             if response.status_code == 200:
                 info = response.json()
-                print(f"{Fore.GREEN}✓ Conectado ao servidor")
+                print(f"{Fore.GREEN}Conectado ao servidor")
                 print(f"  Versão: {info['version']}")
                 print(f"  Assinaturas: {info['total_signatures']}")
                 print(f"  Última atualização: {info['last_update']}")
@@ -72,10 +69,10 @@ class AntivirusDistribuidoCliente:
             )
             if response.status_code == 200:
                 self.signatures = response.json()
-                print(f"{Fore.GREEN}✓ Assinaturas atualizadas: {len(self.signatures.get('malware', {}))} assinaturas")
+                print(f"{Fore.GREEN}Assinaturas atualizadas: {len(self.signatures.get('malware', {}))} assinaturas")
                 return True
         except Exception as e:
-            print(f"{Fore.RED}✗ Erro ao baixar assinaturas: {e}")
+            print(f"{Fore.RED} Erro ao baixar assinaturas: {e}")
         return False
     
     def calculate_hash(self, filepath):
@@ -166,7 +163,7 @@ class AntivirusDistribuidoCliente:
             if not result['clean']:
                 severity = result.get('severity', 'medium')
                 
-                print(f"{Fore.RED}✗ AMEAÇA DETECTADA: {filepath}")
+                print(f"{Fore.RED}AMEAÇA DETECTADA: {filepath}")
                 print(f"  Tipo: {result['threat']}")
                 print(f"  Severidade: {severity.upper()}")
                 if result['recommendations']:
@@ -253,14 +250,14 @@ class AntivirusDistribuidoCliente:
         print(f"{Fore.CYAN}{'='*70}\n")
         
         # Estatísticas gerais
-        print(f"{Fore.WHITE}📊 ESTATÍSTICAS GERAIS:")
+        print(f"{Fore.WHITE}ESTATÍSTICAS GERAIS:")
         print(f"   Total de arquivos escaneados: {self.scan_results['total_files']}")
         print(f"   {Fore.GREEN}Arquivos limpos: {self.scan_results['clean_files']}")
         print(f"   {Fore.RED}Arquivos infectados: {self.scan_results['infected_files']}")
         print(f"   {Fore.YELLOW}Arquivos suspeitos: {self.scan_results['suspicious_files']}")
         
         # Performance
-        print(f"\n{Fore.WHITE}⚡ PERFORMANCE:")
+        print(f"\n{Fore.WHITE}PERFORMANCE:")
         print(f"   Tempo total de scan: {self.scan_results['scan_time']:.3f}s")
         print(f"   Velocidade: {self.scan_results['scan_speed']:.2f} arquivos/segundo")
         print(f"   Tempo médio por arquivo: {self.scan_results['avg_time_per_file']*1000:.2f}ms")
@@ -269,7 +266,7 @@ class AntivirusDistribuidoCliente:
             print(f"   Arquivo mais lento: {max(self.scan_times)*1000:.2f}ms")
         
         # Rede
-        print(f"\n{Fore.WHITE}🌐 ESTATÍSTICAS DE REDE:")
+        print(f"\n{Fore.WHITE}ESTATÍSTICAS DE REDE:")
         print(f"   Requisições ao servidor: {self.scan_results['network_requests']}")
         print(f"   Dados enviados: {self.scan_results['network_bytes_sent']/1024:.2f} KB")
         print(f"   Dados recebidos: {self.scan_results['network_bytes_received']/1024:.2f} KB")
@@ -279,7 +276,7 @@ class AntivirusDistribuidoCliente:
             print(f"   Resposta mais lenta: {max(self.scan_results['server_response_times'])*1000:.2f}ms")
         
         # Recursos
-        print(f"\n{Fore.WHITE}💾 USO DE RECURSOS:")
+        print(f"\n{Fore.WHITE}USO DE RECURSOS:")
         print(f"   Memória utilizada: {self.scan_results['memory_used']:.2f} MB")
         total_mb = self.scan_results['total_bytes_scanned'] / 1024 / 1024
         print(f"   Total de dados escaneados: {total_mb:.2f} MB")
@@ -289,12 +286,12 @@ class AntivirusDistribuidoCliente:
         
         # Tipos de arquivo
         if self.scan_results['file_types_scanned']:
-            print(f"\n{Fore.WHITE}📁 TIPOS DE ARQUIVO:")
+            print(f"\n{Fore.WHITE}TIPOS DE ARQUIVO:")
             for ext, count in sorted(self.scan_results['file_types_scanned'].items(), key=lambda x: x[1], reverse=True):
                 print(f"   {ext}: {count} arquivo(s)")
         
         # Tamanhos
-        print(f"\n{Fore.WHITE}📏 TAMANHOS:")
+        print(f"\n{Fore.WHITE}TAMANHOS:")
         if self.scan_results['largest_file']['size'] > 0:
             print(f"   Maior arquivo: {Path(self.scan_results['largest_file']['name']).name} ({self.scan_results['largest_file']['size']/1024:.2f} KB)")
         if self.scan_results['smallest_file']['size'] < float('inf'):
@@ -302,14 +299,14 @@ class AntivirusDistribuidoCliente:
         
         # Métodos de detecção
         if sum(self.scan_results['detection_methods'].values()) > 0:
-            print(f"\n{Fore.WHITE}🔍 MÉTODOS DE DETECÇÃO:")
+            print(f"\n{Fore.WHITE}MÉTODOS DE DETECÇÃO:")
             for method, count in self.scan_results['detection_methods'].items():
                 if count > 0:
                     print(f"   {method.title()}: {count} detecção(ões)")
         
         # Severidade
         if sum(self.scan_results['threat_severity'].values()) > 0:
-            print(f"\n{Fore.WHITE}⚠️  SEVERIDADE DAS AMEAÇAS:")
+            print(f"\n{Fore.WHITE}SEVERIDADE DAS AMEAÇAS:")
             severity_colors = {'critical': Fore.RED, 'high': Fore.MAGENTA, 'medium': Fore.YELLOW, 'low': Fore.BLUE}
             for level, count in self.scan_results['threat_severity'].items():
                 if count > 0:
@@ -318,7 +315,7 @@ class AntivirusDistribuidoCliente:
         
         # Ameaças detectadas
         if self.scan_results['threats_found']:
-            print(f"\n{Fore.RED}🚨 AMEAÇAS DETECTADAS:")
+            print(f"\n{Fore.RED}AMEAÇAS DETECTADAS:")
             for i, threat in enumerate(self.scan_results['threats_found'], 1):
                 print(f"\n   [{i}] {Path(threat['file']).name}")
                 print(f"       Tipo: {threat['threat']}")
@@ -331,10 +328,10 @@ class AntivirusDistribuidoCliente:
         # Taxa de detecção
         if self.scan_results['total_files'] > 0:
             detection_rate = (self.scan_results['infected_files'] + self.scan_results['suspicious_files']) / self.scan_results['total_files'] * 100
-            print(f"\n{Fore.WHITE}📈 TAXA DE DETECÇÃO: {detection_rate:.1f}%")
+            print(f"\n{Fore.WHITE}TAXA DE DETECÇÃO: {detection_rate:.1f}%")
         
         # Vantagens
-        print(f"\n{Fore.GREEN}✅ VANTAGENS DO ANTIVÍRUS DISTRIBUÍDO:")
+        print(f"\n{Fore.GREEN}VANTAGENS DO ANTIVÍRUS DISTRIBUÍDO:")
         print(f"   • Base de assinaturas sempre atualizada (tempo real)")
         print(f"   • Detecção de ameaças zero-day")
         print(f"   • Análise comportamental avançada")
