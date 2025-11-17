@@ -1,0 +1,56 @@
+======================================================================
+RELATÓRIO COMPARATIVO: ANTIVÍRUS LOCAL vs DISTRIBUÍDO
+======================================================================
+
+Data/Hora: 2025-11-17 17:39:31
+
+MÉTRICAS COLETADAS:
+----------------------------------------------------------------------
+
+ANTIVÍRUS LOCAL:
+  avg_time_per_file: 0.17
+  clean_files: 13.0
+  detection_rate: 7.1
+  infected_files: 1.0
+  memory_used: 0.12
+  scan_speed: 5980.88
+  scan_time: 0.002
+  suspicious_files: 0.0
+  throughput: 0.14
+  total_data: 0.0
+  total_files: 14.0
+
+ANTIVÍRUS DISTRIBUÍDO:
+  avg_latency: 6.78
+  avg_time_per_file: 7.4
+  clean_files: 12.0
+  data_received: 1.04
+  data_sent: 2.13
+  detection_rate: 14.3
+  infected_files: 1.0
+  memory_used: 0.0
+  network_requests: 14.0
+  scan_speed: 135.12
+  scan_time: 0.104
+  suspicious_files: 1.0
+  throughput: 0.0
+  total_data: 0.0
+  total_files: 14.0
+
+======================================================================
+CONCLUSÕES:
+======================================================================
+
+✓ Distribuído detecta 7.2% a mais de ameaças
+✓ Local é mais rápido em scans pequenos
+⚠ Latência de rede adiciona ~6.8ms por arquivo
+
+======================================================================
+GRÁFICOS GERADOS:
+======================================================================
+
+  • performance_comparison.png - Análise de Performance
+  • recursos_comparison.png - Uso de Recursos
+  • deteccao_comparison.png - Eficácia de Detecção
+  • radar_comparison.png - Análise Multidimensional
+  • pizza_comparison.png - Proporções de Status
